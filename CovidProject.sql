@@ -149,7 +149,7 @@ Group by location
 Order by HighestDeathCount desc
 
 -- Second View
--- What's the total cases by continent (This script shows the total cases of covid-19 per continent using the current data from Feb. 23 2020 - Jul. 24 2021)
+-- What's the total cases by continent (This query shows the total cases of covid-19 per continent using the current data from Feb. 23 2020 - Jul. 24 2021)
 
 Select location, Max(cast(total_cases as int)) As HighestCasesCount
 From CovidProject..CovidDeaths
@@ -160,7 +160,7 @@ Order by HighestCasesCount desc
 
 
 -- Third View
--- What's the TOTAL DEATHS by continent (This script shows the total daeth of each continent using the current data from Feb. 23 2020 - Jul. 24 2021)
+-- What's the TOTAL DEATHS by continent (This query shows the total daeth of each continent using the current data from Feb. 23 2020 - Jul. 24 2021)
 
 Select location, Max(cast(total_deaths as int)) As HighestDeathCount
 From CovidProject..CovidDeaths
@@ -171,7 +171,7 @@ Order by HighestDeathCount desc
 
 
 -- Fourth View
--- Global Total Figures (This script shows the New Cases, Total Cases, Death Percentage of the World using the current data from Feb. 23 2020 - Jul. 24 2021)
+-- Global Total Figures (This query shows the New Cases, Total Cases, Death Percentage of the World using the current data from Feb. 23 2020 - Jul. 24 2021)
 
 Select SUM(new_cases) As [Total Cases], SUM(cast(new_deaths as int)) As [Total Deaths], CONVERT(Decimal(10,2), SUM(cast(new_deaths as int))/SUM(new_cases)*100) As [Death Percent]
 From CovidProject..CovidDeaths
@@ -182,6 +182,7 @@ Order by 1, 2
 
 
 -- Fifth View
+-- This query shows the percentage of people vaccinated vs population  
 
 Create View 
 [Percentage Vaccinated By Country] 
